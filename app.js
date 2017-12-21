@@ -40,7 +40,7 @@ const loadJSON = (callback) => {
 loadJSON((text) => {
     const data = JSON.parse(text);
     photo = data.photos.photo;
-    console.log(photo);
+    
     for (let i = 0; i < maxThumbs; i++) {
         const farmID = photo[i].farm;
         const serverID = photo[i].server;
