@@ -19,28 +19,28 @@ const createThumb = (num, url, title) => {
     thumb.id = num + 1;
     thumb.classList.add("thumbnail");
     thumb.innerHTML = '<img src="' + url + '" title="'+ title +'"/>';
-    thumbContainer.append(thumb);
+    thumbContainer.appendChild(thumb);
 }
 
 
 // load flickr JSON
 const loadJSON = (callback) => {
-    var rawFile = new XMLHttpRequest();
-    rawFile.overrideMimeType("application/json");
-    rawFile.open("GET", 'https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=5e25926b2c7316a63e97f34a9ae77e85&gallery_id='+galleryID+'&format=json&nojsoncallback=1', true);
-    rawFile.onreadystatechange = () => {
-        if (rawFile.readyState === 4 && rawFile.status == "200") {
-            callback(rawFile.responseText);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.overrideMimeType("application/json");
+    xmlhttp.open("GET", 'https://api.flickr.com/services/rest/?method=flickr.galleries.getPhotos&api_key=5e25926b2c7316a63e97f34a9ae77e85&gallery_id='+galleryID+'&format=json&nojsoncallback=1', true);
+    xmlhttp.onreadystatechange = () => {
+        if (xmlhttp.readyState === 4 && xmlhttp.status == "200") {
+            callback(xmlhttp.responseText);
         }
     }
-    rawFile.send(null);
+    xmlhttp.send(null);
 }
 
 // parse flickr JSON and populate data
 loadJSON((text) => {
     const data = JSON.parse(text);
     photo = data.photos.photo;
-
+    console.log(photo);
     for (let i = 0; i < maxThumbs; i++) {
         const farmID = photo[i].farm;
         const serverID = photo[i].server;
@@ -50,6 +50,7 @@ loadJSON((text) => {
         const imgURL = 'https://farm' + farmID + '.staticflickr.com/' + serverID + '/' + id + '_' + secret + '.jpg';
 
        createThumb(i, imgURL, title);
+      
     }
 });
 
