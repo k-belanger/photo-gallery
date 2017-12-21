@@ -1,4 +1,4 @@
-# Slack - Photo Gallery Challenge
+# Photo Gallery with Lightbox
 December 21, 2017
 
 ## Project Goal:
