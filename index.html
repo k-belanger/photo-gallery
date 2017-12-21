@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <title>Photo Gallery Code Challenge</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="_css/main.css">
+</head>
+
+<body>
+<section class="page">
+	<ul id="thumbnails" class="thumbnails"></ul>
+</section><!-- end .page -->
+
+<div id="overlay">
+	<div id="modal">
+		<img id="image" src="http://via.placeholder.com/1200x600"/>
+		<p id="imgTitle" class="title"></p>
+		<div id="closeBtn">&#10005;</div>
+		<div id="prevBtn" class="arrow" onclick="nextImage('prev')">&#10094;</div>
+		<div id="nextBtn" class="arrow" onclick="nextImage('next')">&#10095;</div>
+	</div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
