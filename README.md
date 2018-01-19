@@ -1,6 +1,8 @@
 # Photo Gallery with Lightbox
 December 21, 2017
 
+View Project at https://k-belanger.github.io/photo-gallery
+
 ## Project Goal:
 Create a web page that shows a grid of photo thumbnails; when a thumbnail is clicked, the photo should be displayed in a lightbox view,with the ability to move to the next / previous photos and display the photo title. You can use any public API that returns photos
 
